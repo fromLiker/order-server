@@ -21,10 +21,6 @@ pipeline {
     stage('docker build & push & run') {
       agent any
       steps {
-          sh 'docker container rm -f $(docker container ls -q --filter name=*seataorder*)'
-          echo "$(docker container ls -q --filter name=*seataorder*)"
-          sh 'docker image rm -f $(docker image ls -q *${DOCKERHUBNAME}/torder*)'
-          echo "$(docker image ls -q *${DOCKERHUBNAME}/torder*)"
           sh 'docker image build -t ${DOCKERHUBNAME}/torder .'
           sh 'docker run -d -p 8180:8180 --name seataorder ${DOCKERHUBNAME}/torder'
       }
