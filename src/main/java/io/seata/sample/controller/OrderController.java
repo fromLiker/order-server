@@ -37,9 +37,9 @@ public class OrderController {
      * @param status
      * @return
      */
-    @RequestMapping("update")
-    String update(@RequestParam("userId") Long userId, @RequestParam("money") BigDecimal money, @RequestParam("status") Integer status){
-        orderServiceImpl.update(userId,money,status);
-        return "订单状态修改成功";
-    }
+//    @RequestMapping("update")
+//    String update(@RequestParam("userId") Long userId, @RequestParam("money") BigDecimal money, @RequestParam("status") Integer status){
+//        orderServiceImpl.update(userId,money,status);
+//        return "订单状态修改成功";
+//    }
 }

@@ -1,6 +1,6 @@
 package io.seata.sample.service;
 
-import io.seata.sample.dao.OrderDao;
+import io.seata.sample.dao.OrderMapper;
 import io.seata.sample.entity.Order;
 import io.seata.sample.feign.AccountApi;
 import io.seata.sample.feign.StorageApi;
@@ -20,7 +20,7 @@ public class OrderServiceImpl implements OrderService{
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderServiceImpl.class);
 
     @Autowired
-    private OrderDao orderDao;
+    private OrderMapper orderDao;
     @Autowired
     private StorageApi storageApi;
     @Autowired
@@ -39,7 +39,7 @@ public class OrderServiceImpl implements OrderService{
     public void create(Order order) {
         LOGGER.info("------->交易开始");
         //本地方法
-        orderDao.create(order);
+        orderDao.insert(order);
 
         //远程方法 扣减库存
         storageApi.decrease(order.getProductId(),order.getCount());
@@ -56,9 +56,9 @@ public class OrderServiceImpl implements OrderService{
     /**
      * 修改订单状态
      */
-    @Override
-    public void update(Long userId,BigDecimal money,Integer status) {
-        LOGGER.info("修改订单状态，入参为：userId={},money={},status={}",userId,money,status);
-        orderDao.update(userId,money,status);
-    }
+//    @Override
+//    public void update(Long userId,BigDecimal money,Integer status) {
+//        LOGGER.info("修改订单状态，入参为：userId={},money={},status={}",userId,money,status);
+//        orderDao.update(userId,money,status);
+//    }
 }
