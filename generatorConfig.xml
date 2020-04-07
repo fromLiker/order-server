@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="context1">
+    <jdbcConnection connectionURL="jdbc:db2://b03avi11242590.ahe.boulder.ibm.com:60000/DSWTREXT" driverClass="com.ibm.db2.jcc.DB2Driver" password="910-Fulmentfill" userId="db2inst1" />
+    <javaModelGenerator targetPackage="com.ibm.dswt.pojo" targetProject="dswtracker" />
+    <sqlMapGenerator targetPackage="com.ibm.dswt.mapping" targetProject="dswtracker" />
+    <javaClientGenerator targetPackage="com.ibm.dswt.mapper" targetProject="dswtracker" type="XMLMAPPER" />
+    <table schema="CBSE" tableName="DSW_CR"/>
+  </context>
+</generatorConfiguration>
