@@ -6,6 +6,6 @@
     <javaModelGenerator targetPackage="io.seata.sample.entity" targetProject="order-server" />
     <sqlMapGenerator targetPackage="io.seata.sample" targetProject="order-server" />
     <javaClientGenerator targetPackage="io.seata.sample.dao" targetProject="order-server" type="XMLMAPPER" />
-    <table schema="seataorder" tableName="order"/>
+    <table schema="seataorder" tableName="seataorder"/>
   </context>
 </generatorConfiguration>

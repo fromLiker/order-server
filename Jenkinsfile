@@ -21,13 +21,10 @@ pipeline {
     stage('docker build & push & run') {
       agent any
       steps {
-        // withCredentials([usernamePassword(credentialsId: 'liker163ID', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-          // sh 'docker login -u $USERNAME -p $PASSWORD'
+          //sh 'docker container rm -f $(docker container ls -q --filter name=.*seataorder.*)'
+          //sh 'docker image rm -f $(docker image ls -q *${DOCKERHUBNAME}/torder*)'
           sh 'docker image build -t ${DOCKERHUBNAME}/torder .'
-          // sh 'docker push ${DOCKERHUBNAME}/exchange'
-          // sh 'docker run -d -p 8754:8754 --network smc-net --name smcexchange ${DOCKERHUBNAME}/exchange'
-          sh 'docker run -d -p 8180:8180 ${DOCKERHUBNAME}/torder'
-        // }
+          sh 'docker run -d -p 8180:8180 --name seataorder ${DOCKERHUBNAME}/torder'
       }
     }
 

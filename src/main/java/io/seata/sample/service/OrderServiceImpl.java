@@ -1,7 +1,7 @@
 package io.seata.sample.service;
 
-import io.seata.sample.dao.OrderMapper;
-import io.seata.sample.entity.Order;
+import io.seata.sample.dao.SeataorderMapper;
+import io.seata.sample.entity.Seataorder;
 import io.seata.sample.feign.AccountApi;
 import io.seata.sample.feign.StorageApi;
 import io.seata.spring.annotation.GlobalTransactional;
@@ -20,7 +20,7 @@ public class OrderServiceImpl implements OrderService{
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderServiceImpl.class);
 
     @Autowired
-    private OrderMapper orderDao;
+    private SeataorderMapper orderDao;
     @Autowired
     private StorageApi storageApi;
     @Autowired
@@ -36,9 +36,9 @@ public class OrderServiceImpl implements OrderService{
      */
     @Override
     @GlobalTransactional(name = "fsp-create-order",rollbackFor = Exception.class)
-    public void create(Order order) {
+    public void create(Seataorder order) {
         LOGGER.info("------->交易开始");
-        //本地方法
+
         orderDao.insert(order);
 
         //远程方法 扣减库存

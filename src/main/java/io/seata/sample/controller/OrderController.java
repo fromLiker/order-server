@@ -1,6 +1,6 @@
 package io.seata.sample.controller;
 
-import io.seata.sample.entity.Order;
+import io.seata.sample.entity.Seataorder;
 import io.seata.sample.service.OrderService;
 import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class OrderController {
      * @return
      */
     @GetMapping("create")
-    public String create(Order order){
+    public String create(Seataorder order){
         orderServiceImpl.create(order);
         return "Create order success";
     }
