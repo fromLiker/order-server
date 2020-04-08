@@ -1,6 +1,6 @@
 package io.seata.sample.controller;
 
-import io.seata.sample.entity.Seataorder;
+import io.seata.sample.entity.Order;
 import io.seata.sample.service.OrderService;
 import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class OrderController {
      * @return
      */
     @GetMapping("create")
-    public String create(Seataorder order){
+    public String create(Order order){
         orderServiceImpl.create(order);
         return "Create order success";
     }
@@ -37,9 +37,9 @@ public class OrderController {
      * @param status
      * @return
      */
-//    @RequestMapping("update")
-//    String update(@RequestParam("userId") Long userId, @RequestParam("money") BigDecimal money, @RequestParam("status") Integer status){
-//        orderServiceImpl.update(userId,money,status);
-//        return "订单状态修改成功";
-//    }
+    @RequestMapping("update")
+    String update(@RequestParam("userId") Long userId, @RequestParam("money") BigDecimal money, @RequestParam("status") Integer status){
+        orderServiceImpl.update(userId,money,status);
+        return "订单状态修改成功";
+    }
 }

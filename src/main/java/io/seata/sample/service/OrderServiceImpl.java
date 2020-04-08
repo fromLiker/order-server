@@ -1,7 +1,7 @@
 package io.seata.sample.service;
 
-import io.seata.sample.dao.SeataorderMapper;
-import io.seata.sample.entity.Seataorder;
+import io.seata.sample.dao.OrderDao;
+import io.seata.sample.entity.Order;
 import io.seata.sample.feign.AccountApi;
 import io.seata.sample.feign.StorageApi;
 import io.seata.spring.annotation.GlobalTransactional;
@@ -20,7 +20,7 @@ public class OrderServiceImpl implements OrderService{
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderServiceImpl.class);
 
     @Autowired
-    private SeataorderMapper orderDao;
+    private OrderDao orderDao;
     @Autowired
     private StorageApi storageApi;
     @Autowired
@@ -36,10 +36,10 @@ public class OrderServiceImpl implements OrderService{
      */
     @Override
     @GlobalTransactional(name = "fsp-create-order",rollbackFor = Exception.class)
-    public void create(Seataorder order) {
+    public void create(Order order) {
         LOGGER.info("------->交易开始");
-
-        orderDao.insert(order);
+        //本地方法
+        orderDao.create(order);
 
         //远程方法 扣减库存
         storageApi.decrease(order.getProductId(),order.getCount());
@@ -56,9 +56,9 @@ public class OrderServiceImpl implements OrderService{
     /**
      * 修改订单状态
      */
-//    @Override
-//    public void update(Long userId,BigDecimal money,Integer status) {
-//        LOGGER.info("修改订单状态，入参为：userId={},money={},status={}",userId,money,status);
-//        orderDao.update(userId,money,status);
-//    }
+    @Override
+    public void update(Long userId,BigDecimal money,Integer status) {
+        LOGGER.info("修改订单状态，入参为：userId={},money={},status={}",userId,money,status);
+        orderDao.update(userId,money,status);
+    }
 }
