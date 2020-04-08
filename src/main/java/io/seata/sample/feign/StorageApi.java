@@ -17,5 +17,5 @@ public interface StorageApi {
      * @return
      */
     @GetMapping(value = "/storage/decrease")
-    String decrease(@RequestParam("productId") Integer productId, @RequestParam("count") Integer countnum);
+    String decrease(@RequestParam("productid") Integer productid, @RequestParam("countnum") Integer countnum);
 }

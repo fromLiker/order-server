@@ -18,5 +18,5 @@ public interface AccountApi {
      * @return
      */
     @RequestMapping("/account/decrease")
-    String decrease(@RequestParam("userId") Integer userId, @RequestParam("money") Integer money);
+    String decrease(@RequestParam("userid") Integer userid, @RequestParam("money") Integer money);
 }

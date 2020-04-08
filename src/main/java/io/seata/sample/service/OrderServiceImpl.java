@@ -57,8 +57,8 @@ public class OrderServiceImpl implements OrderService{
      * 修改订单状态
      */
     @Override
-    public void update(int userId, int money) {
-        LOGGER.info("修改订单状态，入参为：userId={},money={}",userId,money);
-        orderDao.update(userId,money);
+    public void update(int userid, int money) {
+        LOGGER.info("修改订单状态，入参为：userid={},money={}",userid,money);
+        orderDao.update(userid,money);
     }
 }

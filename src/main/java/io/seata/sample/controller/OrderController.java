@@ -38,8 +38,8 @@ public class OrderController {
      * @return
      */
     @RequestMapping("update")
-    String update(@RequestParam("userId") Integer userId, @RequestParam("money") Integer money){
-        orderServiceImpl.update(userId,money);
+    String update(@RequestParam("userid") Integer userid, @RequestParam("money") Integer money){
+        orderServiceImpl.update(userid,money);
         return "订单状态修改成功";
     }
 }
