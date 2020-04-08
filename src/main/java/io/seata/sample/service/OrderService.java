@@ -19,7 +19,6 @@ public interface OrderService {
      * 修改订单状态
      * @param userId
      * @param money
-     * @param status
      */
-    void update(Long userId,BigDecimal money,Integer status);
+    void update(Long userId,BigDecimal money);
 }
