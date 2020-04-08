@@ -1,7 +1,6 @@
 package io.seata.sample.service;
 
 import io.seata.sample.entity.Order;
-import java.math.BigDecimal;
 
 /**
  * @author IT云清
@@ -15,10 +14,4 @@ public interface OrderService {
      */
     void create(Order order);
 
-    /**
-     * 修改订单状态
-     * @param userId
-     * @param money
-     */
-    void update(int userid, int money);
 }

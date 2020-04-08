@@ -11,9 +11,4 @@
   <insert id="create">
      INSERT INTO `order` (`userid`,`productid`,`countnum`,`money`) VALUES (#{userid}, #{productid}, #{countnum}, #{money});
   </insert>
-
-  <update id="update">
-    UPDATE `order` SET money = money - #{money}
-    where userid = #{userid};
-  </update>
 </mapper>

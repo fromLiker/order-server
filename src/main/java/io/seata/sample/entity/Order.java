@@ -1,7 +1,5 @@
 package io.seata.sample.entity;
 
-
-import java.math.BigDecimal;
 import lombok.Data;
 
 /**
@@ -11,7 +9,7 @@ import lombok.Data;
 @Data
 public class Order {
 
-    private Integer id;
+    private Integer orderid;
 
     private Integer userid;
 

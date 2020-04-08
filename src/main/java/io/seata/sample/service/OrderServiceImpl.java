@@ -2,10 +2,9 @@ package io.seata.sample.service;
 
 import io.seata.sample.dao.OrderDao;
 import io.seata.sample.entity.Order;
-import io.seata.sample.feign.AccountApi;
-import io.seata.sample.feign.StorageApi;
+//import io.seata.sample.feign.AccountApi;
+//import io.seata.sample.feign.StorageApi;
 import io.seata.spring.annotation.GlobalTransactional;
-import java.math.BigDecimal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +20,10 @@ public class OrderServiceImpl implements OrderService{
 
     @Autowired
     private OrderDao orderDao;
-    @Autowired
-    private StorageApi storageApi;
-    @Autowired
-    private AccountApi accountApi;
+//    @Autowired
+//    private StorageApi storageApi;
+//    @Autowired
+//    private AccountApi accountApi;
 
     /**
      * 创建订单
@@ -42,23 +41,15 @@ public class OrderServiceImpl implements OrderService{
         orderDao.create(order);
 
         //远程方法 扣减库存
-        storageApi.decrease(order.getProductid(),order.getCountnum());
+//        storageApi.decrease(order.getProductid(),order.getCountnum());
 
         //远程方法 扣减账户余额
 
         LOGGER.info("------->扣减账户开始order中");
-        accountApi.decrease(order.getUserid(),order.getMoney());
+//        accountApi.decrease(order.getUserid(),order.getMoney());
         LOGGER.info("------->扣减账户结束order中");
 
         LOGGER.info("------->交易结束");
     }
 
-    /**
-     * 修改订单状态
-     */
-    @Override
-    public void update(int userid, int money) {
-        LOGGER.info("修改订单状态，入参为：userid={},money={}",userid,money);
-        orderDao.update(userid,money);
-    }
 }
