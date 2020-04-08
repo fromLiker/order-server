@@ -38,7 +38,7 @@ public class OrderController {
      * @return
      */
     @RequestMapping("update")
-    String update(@RequestParam("userId") Long userId, @RequestParam("money") BigDecimal money){
+    String update(@RequestParam("userId") Integer userId, @RequestParam("money") Integer money){
         orderServiceImpl.update(userId,money);
         return "订单状态修改成功";
     }

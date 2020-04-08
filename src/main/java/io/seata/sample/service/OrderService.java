@@ -20,5 +20,5 @@ public interface OrderService {
      * @param userId
      * @param money
      */
-    void update(Long userId,BigDecimal money);
+    void update(int userId, int money);
 }

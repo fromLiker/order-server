@@ -11,14 +11,14 @@ import lombok.Data;
 @Data
 public class Order {
 
-    private Long id;
+    private Integer id;
 
-    private Long userId;
+    private Integer userid;
 
-    private Long productId;
+    private Integer productid;
 
-    private Integer count;
+    private Integer countnum;
 
-    private BigDecimal money;
+    private Integer money;
 
 }

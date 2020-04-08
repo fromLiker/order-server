@@ -42,12 +42,12 @@ public class OrderServiceImpl implements OrderService{
         orderDao.create(order);
 
         //远程方法 扣减库存
-        storageApi.decrease(order.getProductId(),order.getCount());
+        storageApi.decrease(order.getProductid(),order.getCountnum());
 
         //远程方法 扣减账户余额
 
         LOGGER.info("------->扣减账户开始order中");
-        accountApi.decrease(order.getUserId(),order.getMoney());
+        accountApi.decrease(order.getUserid(),order.getMoney());
         LOGGER.info("------->扣减账户结束order中");
 
         LOGGER.info("------->交易结束");
@@ -57,7 +57,7 @@ public class OrderServiceImpl implements OrderService{
      * 修改订单状态
      */
     @Override
-    public void update(Long userId,BigDecimal money) {
+    public void update(int userId, int money) {
         LOGGER.info("修改订单状态，入参为：userId={},money={}",userId,money);
         orderDao.update(userId,money);
     }
