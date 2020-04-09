@@ -1,5 +1,7 @@
 package io.seata.sample.entity;
 
+
+import java.math.BigDecimal;
 import lombok.Data;
 
 /**
@@ -9,14 +11,17 @@ import lombok.Data;
 @Data
 public class Order {
 
-    private Integer id;
+    private Long id;
 
-    private Integer userid;
+    private Long userId;
 
-    private Integer productid;
+    private Long productId;
 
-    private Integer countnum;
+    private Integer count;
 
-    private Integer money;
+    private BigDecimal money;
+
+    /**订单状态：0：创建中；1：已完结*/
+    private Integer status;
 
 }
