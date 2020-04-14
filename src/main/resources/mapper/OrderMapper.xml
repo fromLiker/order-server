@@ -11,8 +11,13 @@
   </resultMap>
   <insert id="create">
      INSERT INTO `order` (`id`,`user_id`,`product_id`,`count`,`money`,`status`)
-      VALUES(NULL, #{userId}, #{productId}, #{count}, #{money},0);
+      VALUES(NULL, #{userId,jdbcType=BIGINT}, #{productId,jdbcType=BIGINT}, #{count,jdbcType=INTEGER}, #{money,jdbcType=DECIMAL},0);
   </insert>
+
+  <!-- <insert id="insert" parameterType="com.ibm.tx.order.persistence.Order">
+    insert into order_tbl (user_id,commodity_code,count,money)
+    values (#{userId,jdbcType=VARCHAR}, #{commodityCode,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, #{money,jdbcType=DECIMAL})
+  </insert> -->
 
   <update id="update">
     UPDATE `order` SET money = money - #{money},status = 1
