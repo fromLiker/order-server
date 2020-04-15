@@ -1,7 +1,7 @@
 package io.seata.sample;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import io.seata.rm.datasource.DataSourceProxy;
+//import io.seata.rm.datasource.DataSourceProxy;
 import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -26,20 +26,20 @@ public class DataSourceConfiguration {
         return druidDataSource;
     }
 
-    @Primary
-    @Bean("dataSource")
-    public DataSourceProxy dataSource(DataSource druidDataSource){
-        return new DataSourceProxy(druidDataSource);
-    }
-
-    @Bean
-    public SqlSessionFactory sqlSessionFactory(DataSourceProxy dataSourceProxy)throws Exception{
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSourceProxy);
-        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-        .getResources("classpath*:/mapper/*.xml"));
-        sqlSessionFactoryBean.setTransactionFactory(new SpringManagedTransactionFactory());
-        return sqlSessionFactoryBean.getObject();
-    }
+//    @Primary
+//    @Bean("dataSource")
+//    public DataSourceProxy dataSource(DataSource druidDataSource){
+//        return new DataSourceProxy(druidDataSource);
+//    }
+//
+//    @Bean
+//    public SqlSessionFactory sqlSessionFactory(DataSourceProxy dataSourceProxy)throws Exception{
+//        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+//        sqlSessionFactoryBean.setDataSource(dataSourceProxy);
+//        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
+//        .getResources("classpath*:/mapper/*.xml"));
+//        sqlSessionFactoryBean.setTransactionFactory(new SpringManagedTransactionFactory());
+//        return sqlSessionFactoryBean.getObject();
+//    }
 
 }
