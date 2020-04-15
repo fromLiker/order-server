@@ -1,11 +1,13 @@
-package io.seata.sample.service;
+package io.seata.sample.dao;
 
 import io.seata.sample.entity.Orders;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author Liker
  */
-public interface OrderService {
+@Repository
+public interface OrdersDao {
 
     /**
      * a创建订单
