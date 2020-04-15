@@ -9,7 +9,7 @@
     <result column="money" property="money" jdbcType="INTEGER" />
   </resultMap>
 
-  <insert id="create">INSERT INTO `order` (`userid`,`productid`,`countnum`,`money`) VALUES (#{userid},#{productid},#{countnum},#{money});</insert>
+  <insert id="create">INSERT INTO `orders` (`userid`,`productid`,`countnum`,`money`) VALUES (#{userid},#{productid},#{countnum},#{money});</insert>
 
 </mapper>
 
