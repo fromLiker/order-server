@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 import lombok.Data;
 
 /**
- * 订单
- * @author IT云清
+ * a订单
+ * @author Liker
  */
 @Data
 public class Order {
@@ -21,7 +21,7 @@ public class Order {
 
     private BigDecimal money;
 
-    /**订单状态：0：创建中；1：已完结*/
+    /**a订单状态：0：创建中；1：已完结*/
     private Integer status;
 
 }

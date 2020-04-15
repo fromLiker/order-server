@@ -25,30 +25,12 @@ server:
 spring:
     application:
         name: order-server
-#    cloud:
-#        alibaba:
-#            seata:
-#                tx-service-group: fsp_tx_group
+    cloud:
+        alibaba:
+            seata:
+                tx-service-group: fsp_tx_group
     datasource:
-        driver-class-name: com.mysql.jdbc.Driver
-        password: admin
-        url: jdbc:mysql://106.54.194.33:3307/torder
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://106.54.194.33/seat-order?serverTimezone=GMT%2B8&useSSL=false
         username: root
-
-seata:
-    enabled: true
-    application-id: ${spring.application.name}  # 可以自定义
-    tx-service-group: fsp_tx_group # 此处的名称一定要与 vgroup-mapping下配置的参数保持一致
-    registry:
-        file:
-                #因为seata版本驼峰参数映射有问题导致，seata的zk配置参数设置不上导致异常，所以采用了file方式
-        name: registry-test.conf 
-    service:
-        grouplist:
-        # seata seaver的 地址配置，此处可以集群配置是个数组
-        default: 127.0.0.1:8091
-        vgroup-mapping:
-        # key一定要与tx-service-group一致
-        fsp_tx_group: default
-        # 这边自动代理关掉是因为，, seata源码中SeataDataSourceBeanPostProcessor的初始化要比我的datasource初始话晚，导致datasoure不会被包装为代理类，此处我自己代码做了处理
-    enableAutoDataSourceProxy: false
+        password: admin

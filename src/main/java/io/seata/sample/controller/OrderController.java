@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author IT云清
+ * @author Liker
  */
 @RestController
 @RequestMapping(value = "order")
@@ -20,7 +20,7 @@ public class OrderController {
     private OrderService orderServiceImpl;
 
     /**
-     * 创建订单
+     *a 创建订单
      * @param order
      * @return
      */
@@ -31,7 +31,7 @@ public class OrderController {
     }
 
     /**
-     * 修改订单状态
+     *a 修改订单状态
      * @param userId
      * @param money
      * @param status

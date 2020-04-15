@@ -6,20 +6,20 @@ import io.seata.sample.entity.Order;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author IT云清
+ * @author Liker
  */
 @Repository
 public interface OrderDao {
 
     /**
-     * 创建订单
+     * a创建订单
      * @param order
      * @return
      */
     void create(Order order);
 
     /**
-     * 修改订单金额
+     * a修改订单金额
      * @param userId
      * @param money
      */

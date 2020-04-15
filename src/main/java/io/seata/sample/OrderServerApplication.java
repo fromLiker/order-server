@@ -8,8 +8,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
- * 订单服务
- * @author wangzhongxiang
+ * a订单服务
+ * @author Liker
  */
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @MapperScan("io.seata.sample.dao")

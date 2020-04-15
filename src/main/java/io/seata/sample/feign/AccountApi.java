@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * @author IT云清
+ * @author Liker
  */
 @FeignClient(value = "account-server")
 public interface AccountApi {
 
     /**
-     * 扣减账户余额
+     * a扣减账户余额
      * @param userId 用户id
      * @param money 金额
      * @return
