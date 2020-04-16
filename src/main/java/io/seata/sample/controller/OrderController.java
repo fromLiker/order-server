@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Liker
  */
 @RestController
-@RequestMapping(value = "orders")
+@RequestMapping(value = "order")
 public class OrderController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class OrderController {
      * @param order
      * @return
      */
-    @GetMapping("create")
+    @GetMapping("creates")
     public String create(Orders orders){
         orderServiceImpl.create(orders);
         return "Create order success";

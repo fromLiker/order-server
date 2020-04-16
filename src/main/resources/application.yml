@@ -17,9 +17,6 @@ logging:
     level:
         io:
             seata: info
-mybatis:
-    mapperLocations: classpath:mapper/*.xml
-    typeAliasesPackage: io.seata.sample.entity
 server:
     port: 8180
 spring:
@@ -29,6 +26,14 @@ spring:
         alibaba:
             seata:
                 tx-service-group: fsp_tx_group
+    jpa: 
+        database: mysql
+        show-sql: true
+        hibernate: 
+            ddl-auto: update
+        properties:
+            hibernate: 
+                dialect: org.hibernate.dialect.MySQL5InnoDBDialect  
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://106.54.194.33/mystdb?serverTimezone=GMT%2B8&useSSL=false
