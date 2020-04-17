@@ -23,6 +23,12 @@ public class OrdersController {
 	@PostMapping("orders/create")
 	public String create(@RequestBody OrdersEntity ordersEntity) {
 		ordersService.create(ordersEntity);
+        return "Create order failed";
+	}
+	
+	@PostMapping("orders/createnormal")
+	public String creaternormal(@RequestBody OrdersEntity ordersEntity) {
+		ordersService.createn(ordersEntity);
         return "Create order success";
 	}
 

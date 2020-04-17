@@ -40,5 +40,23 @@ public class OrdersService {
         
 		LOGGER.info("------->交易结束");
 	}
+    
+    @GlobalTransactional(name = "fsp-createnormal-order", rollbackFor = Exception.class)
+	public void createn(OrdersEntity ordersEntity) {
+		LOGGER.info("------->交易开始");
+		ordersRepository.save(ordersEntity);
+		
+        //a远程方法 扣减库存
+        LOGGER.info("------->扣减库存开始");
+        storageApi.decrease(ordersEntity.getProductid(), ordersEntity.getCountnum());
+        LOGGER.info("------->扣减库存结束");
+
+        //a远程方法 扣减账户余额
+        LOGGER.info("------->扣减账户开始");
+        accountApi.decreasen(ordersEntity.getUserid(), ordersEntity.getMoney());
+        LOGGER.info("------->扣减账户结束");
+        
+		LOGGER.info("------->交易结束");
+	}
 	  
 }

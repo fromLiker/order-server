@@ -12,7 +12,7 @@ public interface StorageApi {
 
     /**
      * a扣减库存
-     * @param productId
+     * @param productid
      * @param count
      * @return
      */
