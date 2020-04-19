@@ -8,7 +8,7 @@ import io.seata.sample.dao.OrdersRepository;
 import io.seata.sample.entity.OrdersEntity;
 import io.seata.sample.feign.AccountApi;
 import io.seata.sample.feign.StorageApi;
-//import io.seata.spring.annotation.GlobalTransactional;
+import io.seata.spring.annotation.GlobalTransactional;
 
 @Service
 public class OrdersService {
@@ -23,7 +23,7 @@ public class OrdersService {
     private AccountApi accountApi;
     
     // a不加注解则不会发生事务回滚
-    // @GlobalTransactional(name = "fsp-create-order", rollbackFor = Exception.class)
+    @GlobalTransactional(name = "fsp-create-order", rollbackFor = Exception.class)
 	public void create(OrdersEntity ordersEntity) {
 		LOGGER.info("------->交易开始");
 		ordersRepository.save(ordersEntity);
