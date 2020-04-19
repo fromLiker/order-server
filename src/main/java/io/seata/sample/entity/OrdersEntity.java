@@ -27,6 +27,16 @@ public class OrdersEntity extends AuditEntity {
 	@Column(name = "money")
 	private Integer money;
 	
+	@Column(name = "status")
+	private Integer status;
+	
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 	
 	// a就算有lmbok也不能省，否则requestbody取不到值
 	public Integer getId() {

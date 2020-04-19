@@ -24,7 +24,7 @@ pipeline {
       agent any
       steps {
         script {
-          def REMOVE_FLAG_C = sh(returnStdout: true, script: "docker container ls -q --filter name=${CONTAINERNAME}") != ""
+          def REMOVE_FLAG_C = sh(returnStdout: true, script: "docker container ls -a -q -f name=${CONTAINERNAME}") != ""
           echo "REMOVE_FLAG_C: ${REMOVE_FLAG_C}"
           if(REMOVE_FLAG_C){
             sh 'docker stop ${CONTAINERNAME}'
