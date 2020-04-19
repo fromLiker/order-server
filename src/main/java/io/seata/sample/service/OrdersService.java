@@ -37,9 +37,9 @@ public class OrdersService {
         LOGGER.info("------->扣减账户开始");
         int restatus = ordersEntity.getTstatus();
         if(restatus==1) {
-        	accountApi.decreasen(ordersEntity.getUserid(), ordersEntity.getMoney());
+       	accountApi.decreasen(ordersEntity.getUserid(), ordersEntity.getMoney());
         } else {
-        	accountApi.decrease(ordersEntity.getUserid(), ordersEntity.getMoney());
+       	accountApi.decrease(ordersEntity.getUserid(), ordersEntity.getMoney());
         }
         
         LOGGER.info("------->扣减账户结束");
