@@ -22,7 +22,7 @@ public class OrdersController {
 	@PostMapping("create")
 	public String create(@RequestBody OrdersEntity ordersEntity) {
 		ordersService.create(ordersEntity);
-        return "Create order failed";
+        return "Create order success";
 	}
 	
 //	@PostMapping("orders/createnormal")
