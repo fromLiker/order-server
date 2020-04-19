@@ -7,4 +7,4 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
-ALTER TABLE `orders` ADD COLUMN `status` int(1) DEFAULT NULL COMMENT '1commit0rollback' AFTER `money`;
+ALTER TABLE `orders` ADD COLUMN `tstatus` int(1) DEFAULT NULL COMMENT '1commit0rollback' AFTER `money`;

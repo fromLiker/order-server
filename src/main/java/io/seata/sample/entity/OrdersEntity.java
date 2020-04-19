@@ -27,15 +27,15 @@ public class OrdersEntity extends AuditEntity {
 	@Column(name = "money")
 	private Integer money;
 	
-	@Column(name = "status")
-	private Integer status;
+	@Column(name = "tstatus")
+	private Integer tstatus;
 	
-	public Integer getStatus() {
-		return status;
+	public Integer getTstatus() {
+		return tstatus;
 	}
 
-	public void setStatus(Integer status) {
-		this.status = status;
+	public void setTstatus(Integer tstatus) {
+		this.tstatus = tstatus;
 	}
 	
 	// a就算有lmbok也不能省，否则requestbody取不到值

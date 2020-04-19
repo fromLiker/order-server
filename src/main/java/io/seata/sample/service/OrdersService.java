@@ -35,7 +35,7 @@ public class OrdersService {
 
         //a远程方法 扣减账户余额
         LOGGER.info("------->扣减账户开始");
-        int restatus = ordersEntity.getStatus();
+        int restatus = ordersEntity.getTstatus();
         if(restatus==1) {
         	accountApi.decreasen(ordersEntity.getUserid(), ordersEntity.getMoney());
         } else {
