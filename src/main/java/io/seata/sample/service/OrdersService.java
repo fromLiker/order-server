@@ -23,7 +23,7 @@ public class OrdersService {
     private AccountApi accountApi;
     
     // a不加注解则不会发生事务回滚
-    // @GlobalTransactional(name = "fsp-create-order", rollbackFor = Exception.class)
+    @GlobalTransactional(name = "fsp-create-order", rollbackFor = Exception.class)
 	public void create(OrdersEntity ordersEntity) {
 		LOGGER.info("------->交易开始");
 		ordersRepository.save(ordersEntity);
@@ -37,9 +37,9 @@ public class OrdersService {
         LOGGER.info("------->扣减账户开始");
         int restatus = ordersEntity.getTstatus();
         if(restatus==1) {
-       	accountApi.decreasen(ordersEntity.getUserid(), ordersEntity.getMoney());
+       	    accountApi.decreasen(ordersEntity.getUserid(), ordersEntity.getMoney());
         } else {
-       	accountApi.decrease(ordersEntity.getUserid(), ordersEntity.getMoney());
+       	    accountApi.decrease(ordersEntity.getUserid(), ordersEntity.getMoney());
         }
         
         LOGGER.info("------->扣减账户结束");
