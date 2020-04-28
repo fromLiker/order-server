@@ -18,14 +18,4 @@ public interface AccountApi {
      */
     @RequestMapping("/account/decrease")
     String decrease(@RequestParam("userid") Integer userid, @RequestParam("money") Integer money);
-    
-    /**
-     * a正常扣减账户余额
-     * @param userid 用户id
-     * @param money 金额
-     * @return
-     */
-    @RequestMapping("/account/decreasen")
-    String decreasen(@RequestParam("userid") Integer userid, @RequestParam("money") Integer money);
-    
 }
