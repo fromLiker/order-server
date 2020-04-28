@@ -27,8 +27,6 @@ public class OrdersEntity extends AuditEntity {
 	@Column(name = "money")
 	private Integer money;
 	
-	@Column(name = "tstatus")
-	private Integer tstatus;
 	
 	// a就算有lmbok也不能省，否则requestbody取不到值
 	public Integer getId() {
@@ -69,14 +67,6 @@ public class OrdersEntity extends AuditEntity {
 
 	public void setMoney(Integer money) {
 		this.money = money;
-	}
-	
-	public Integer getTstatus() {
-		return tstatus;
-	}
-
-	public void setTstatus(Integer tstatus) {
-		this.tstatus = tstatus;
 	}
 	
 
