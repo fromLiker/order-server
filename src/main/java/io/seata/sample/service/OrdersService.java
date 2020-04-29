@@ -22,7 +22,7 @@ public class OrdersService {
     @Autowired
     private AccountApi accountApi;
     
-    // a不加注解则不会发生事务回滚
+    // a不加注解则不会发生事务回滚a
     @GlobalTransactional(name = "fsp-create-order", rollbackFor = Exception.class)
 	public void create(OrdersEntity ordersEntity) {
 		LOGGER.info("------->交易开始");
